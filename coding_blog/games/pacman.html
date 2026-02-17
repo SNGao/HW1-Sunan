@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Pac-Man 💘 | Coding Blog</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <span class="logo-icon">💻</span>
+                <span class="logo-text">Coding Blog</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="../index.html#projects" class="nav-link">Projects</a></li>
+                <li><a href="../index.html#papers" class="nav-link">Papers</a></li>
+                <li><a href="../index.html#about" class="nav-link">About</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Game Container -->
+    <div class="game-container">
+        <div class="game-header">
+            <a href="../index.html" class="back-link">← Back to Home</a>
+            <h1>Valentine's Pac-Man 💘</h1>
+            <p>
+                A Valentine-themed Pac-Man game featuring classic mechanics with 
+                a romantic twist! Collect roses 🌹 to power up and shoot hearts 💕 
+                at the ghosts!
+            </p>
+        </div>
+
+        <div class="game-wrapper">
+            <iframe 
+                id="game-frame"
+                class="game-frame" 
+                src="pacman_build/index.html" 
+                title="Valentine's Pac-Man Game"
+                allow="autoplay; fullscreen"
+            ></iframe>
+        </div>
+
+        <div class="container">
+            <div class="game-instructions">
+                <h3>🎮 How to Play</h3>
+                <ul>
+                    <li><strong>Arrow Keys</strong> - Move Pac-Man through the maze</li>
+                    <li><strong>Eat Dots</strong> - Collect all the dots to progress</li>
+                    <li><strong>Avoid Ghosts</strong> - Don't let the ghosts catch you!</li>
+                    <li><strong>Collect Roses 🌹</strong> - Power up and become invincible</li>
+                    <li><strong>Shoot Hearts 💕</strong> - When powered up, Pac-Man shoots hearts that eliminate ghosts</li>
+                </ul>
+            </div>
+
+            <div class="game-instructions">
+                <h3>✨ Features</h3>
+                <ul>
+                    <li>Classic Pac-Man gameplay with Valentine's theme</li>
+                    <li>4 unique ghosts with different AI behaviors</li>
+                    <li>Rose power-ups that enable heart projectiles</li>
+                    <li>Built with Python/Pygame, compiled to WebAssembly</li>
+                    <li>Runs directly in your browser!</li>
+                </ul>
+            </div>
+
+            <div class="game-instructions" style="text-align: center; background: rgba(236, 72, 153, 0.1); border-color: var(--secondary);">
+                <h3>🚀 Build Instructions</h3>
+                <p style="color: var(--text-secondary); margin-top: 10px;">
+                    To build and deploy the game, run the following command in the <code>Pac_Man</code> folder:
+                </p>
+                <div class="code-block" style="margin-top: 15px; text-align: left;">
+                    <pre><code>pygbag --build main.py</code></pre>
+                </div>
+                <p style="color: var(--text-muted); margin-top: 15px; font-size: 0.9rem;">
+                    Then copy the contents of <code>build/web</code> to <code>codeing_blog/games/pacman_build</code>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Coding Blog | BST 236 Computing I | Harvard University</p>
+            <p class="footer-links">
+                <a href="https://github.com">GitHub</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

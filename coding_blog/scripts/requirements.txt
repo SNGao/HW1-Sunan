@@ -1,0 +1,6 @@
+# Dependencies for arXiv paper fetcher
+# Note: The script uses only standard library, but these are optional
+# for more robust parsing if needed in the future
+
+requests>=2.28.0
+feedparser>=6.0.0

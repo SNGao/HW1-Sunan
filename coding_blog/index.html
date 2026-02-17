@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Blog | BST 236</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-icon">💻</span>
+                <span class="logo-text">Coding Blog</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#papers" class="nav-link">Papers</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Welcome to My <span class="highlight">Coding Blog</span>
+            </h1>
+            <p class="hero-subtitle">
+                Exploring AI-assisted development, game programming, and data science projects.
+                A journey through BST 236: Computing I at Harvard.
+            </p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="#papers" class="btn btn-secondary">Latest Papers</a>
+            </div>
+        </div>
+        <div class="hero-decoration">
+            <div class="code-block">
+                <pre><code><span class="keyword">def</span> <span class="function">explore_projects</span>():
+    <span class="string">"""Discover amazing coding adventures"""</span>
+    <span class="keyword">return</span> [<span class="string">"games"</span>, <span class="string">"research"</span>, <span class="string">"ai"</span>]</code></pre>
+            </div>
+        </div>
+    </header>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section projects">
+        <div class="container">
+            <h2 class="section-title">🚀 Projects</h2>
+            <p class="section-subtitle">Interactive games and coding experiments built with AI assistance</p>
+            
+            <div class="projects-grid">
+                <!-- Pac-Man Game Card -->
+                <article class="project-card featured">
+                    <div class="project-image">
+                        <span class="project-emoji">🎮</span>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-tag">Game</span>
+                        <h3 class="project-title">Valentine's Pac-Man 💘</h3>
+                        <p class="project-description">
+                            A Valentine-themed Pac-Man game with classic mechanics, rose power-ups 🌹, 
+                            and heart projectiles 💕. Built with Python/Pygame and deployed via WebAssembly.
+                        </p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>Pygame</span>
+                            <span>WebAssembly</span>
+                        </div>
+                        <a href="games/pacman.html" class="btn btn-primary">Play Now</a>
+                    </div>
+                </article>
+
+                <!-- Placeholder for future projects -->
+                <article class="project-card">
+                    <div class="project-image">
+                        <span class="project-emoji">📚</span>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-tag">Data</span>
+                        <h3 class="project-title">arXiv Paper Feed</h3>
+                        <p class="project-description">
+                            Auto-updating feed of the latest research papers on machine learning, 
+                            LLMs, and biostatistics. Updated daily via GitHub Actions.
+                        </p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>arXiv API</span>
+                            <span>GitHub Actions</span>
+                        </div>
+                        <a href="papers.html" class="btn btn-primary">View Papers</a>
+                    </div>
+                </article>
+
+                <!-- Placeholder for future projects -->
+                <article class="project-card placeholder">
+                    <div class="project-image">
+                        <span class="project-emoji">🔮</span>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-tag">Coming Soon</span>
+                        <h3 class="project-title">Future Projects</h3>
+                        <p class="project-description">
+                            More exciting coding projects will be added here as we progress through the course!
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Papers Section -->
+    <section id="papers" class="section papers">
+        <div class="container">
+            <h2 class="section-title">📚 Latest Papers</h2>
+            <p class="section-subtitle">Auto-updating feed of the latest arXiv papers</p>
+            
+            <div class="papers-preview">
+                <div class="paper-card placeholder-paper">
+                    <div class="paper-icon">📄</div>
+                    <h3>arXiv Paper Feed</h3>
+                    <p>Stay tuned! An auto-updating arXiv paper feed will be available here soon, 
+                       fetching the latest research papers daily.</p>
+                    <a href="papers.html" class="btn btn-secondary">View Papers</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <h2 class="section-title">👨‍💻 About This Blog</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        This coding blog documents my journey through <strong>BST 236: Computing I</strong> 
+                        at Harvard University. Here, I explore AI-assisted programming, game development, 
+                        and data science through hands-on projects.
+                    </p>
+                    <p>
+                        Each project showcases the power of AI coding assistants like GitHub Copilot 
+                        in helping developers tackle unfamiliar domains and build amazing things.
+                    </p>
+                    <div class="about-features">
+                        <div class="feature">
+                            <span class="feature-icon">🤖</span>
+                            <span>AI-Assisted Development</span>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">🎮</span>
+                            <span>Interactive Games</span>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">📊</span>
+                            <span>Data Science</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Coding Blog | BST 236 Computing I | Harvard University</p>
+            <p class="footer-links">
+                <a href="https://github.com">GitHub</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
