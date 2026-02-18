@@ -4,17 +4,29 @@ BST 236: Computing I | Harvard University
 
 ## 🌐 Coding Blog Website
 
-**[Visit the Coding Blog Homepage](https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPO_NAME/coding_blog/)**
 
-> **Note**: Replace `YOUR_GITHUB_USERNAME` and `YOUR_REPO_NAME` with your actual GitHub username and repository name after deploying to GitHub Pages.
+**[Visit the HW1 website](https://sngao.github.io/HW1-Sunan/)**
 
 ### Website Pages
 
 | Page | Description |
 |------|-------------|
-| [Homepage](coding_blog/index.html) | Main landing page with project overview |
+| [Coding Blog Homepage](coding_blog/index.html) | Main landing page with project overview |
 | [Valentine's Pac-Man](coding_blog/games/pacman_build/index.html) | Play the Valentine-themed Pac-Man game |
 | [arXiv Papers](coding_blog/papers.html) | Auto-updating research paper feed |
+
+---
+
+## Case Study: Using AI Copilot for Coding
+
+This README serves as a case-study tutorial documenting how I used AI coding assistants to complete three problems. Below, I describe the AI tools used, how I designed and adjusted prompts through iterative debugging, and the lessons learned from each problem.
+
+### AI Tools Used
+
+| Tool | Usage |
+|------|-------|
+| **GitHub Copilot (VSCode)** | Primary coding assistant, code generation, debugging |
+| **Claude AI (Opus 4.5)** | Complex problem-solving, architecture decisions, multi-file refactoring, planning |
 
 ---
 
@@ -37,13 +49,16 @@ Created a homepage for the coding blog website hosted on GitHub Pages. The desig
 - `coding_blog/css/style.css` - Stylesheet
 - `coding_blog/js/main.js` - JavaScript functionality
 
-### Prompt Used
+### Prompt Design Process
+
+**Note**: I actually started with Problem 2 (the game), then moved to Problem 1. After completing the game, I needed to integrate it into a website.
+
+**Main Prompt**:
 ```
-Following the illustrations in Guide.md, I need Create a homepage for a website for my coding blog. 
-The website should be hosted on GitHub Pages. You can design the homepage by yourself in any 
-proper style you like. You may need to make the design expandable to add more content from our 
-future assignments.
+Following the illustrations in Guide.md, I need Create a homepage for a website for my coding blog. The website should be hosted on GitHub Pages. You can design the homepage by yourself in any proper style you like. You may need to make the design expandable to add more content from our  future assignments. The link to the homepage should be added to the README.md of your homework repository so that anyone can access the homepage and the following two webpages from the Internet using this link. And we already develop the game: Pac_Man, saved in the Pac_Man folder
 ```
+
+**Key Design Decision**: I let the AI choose the design style ("You can design the homepage by yourself in any proper style you like") while specifying the requirement for expandability for future assignments.
 
 ---
 
@@ -86,21 +101,125 @@ Web version in `coding_blog/games/pacman_build/`:
 Original Python version in `Pac_Man/` folder (for reference):
 - `main.py`, `game.py`, `pacman.py`, `ghost.py`, `maze.py`, `projectile.py`, `powerup.py`, `config.py`
 
-### Prompts and Iterations
+### Detailed Prompt Engineering & Iterative Debugging Process
 
-Initial prompt:
+This section documents the complete workflow showing how I used AI assistants and adjusted prompts iteratively.
+
+#### Step 1: Initial Planning with Claude Opus 4.5
+
+I started by using the `plan` mode to get AI guidance on the task:
+
 ```
-Following the illustrations in Guide.md, I first need to develop a game named Pac-Man 
-(Valentine's Special). The user can play this game on a browser by opening html. 
+Following the illustrations in Guide.md, I first need to develop a game named 
+Pac-Man(Valentine's Special), which corresponds to the Problem 2. For this game, 
+the user can play this game on a browser by opening html. I want to use Python to code. 
 Please give me a detailed prompt on the instruction of this task.
 ```
 
-Debugging prompts (iterative fixes):
+Then I asked the AI to:
 ```
-- "The ghosts can't catch me; they don't seem to understand the structure of the obstacles in the maze"
-- "When they leave the birth region and begin to chase me, some of them will stop chasing me"
-- "The ghost is much faster than Pac-Man, could make it a little slower?"
+Save this prompt into a markdown file, and then please do the task and write the code.
 ```
+
+#### Step 2: First Bug - Ghost Movement Issues
+
+**Problem Observed**: The game runs normally, but ghosts appear at the start of the game, go to the same spot one by one, and then stop instead of chasing Pac-Man.
+
+**My Prompt**:
+```
+The game runs normally, but the issues still exist. Ghosts appear at the start of the 
+game, but instead of chasing Pac-Man, they go to the same spot one by one and then stop. 
+The ghost is expected to move and chase Pac-Man rather than staying in the same place.
+```
+
+#### Step 3: Web Deployment Issues with pygbag
+
+After building with pygbag, I faced deployment issues. My debugging prompts:
+
+**Prompt 1**:
+```
+I have built the Pac-Man game using 'pygbag --build main.py', and generated the file 
+saved in Pac_Man/build folder. And following the instructions, I copy the contents in 
+Pac_Man/build/web and paste them in coding_blog/games/pacman_build. But I faced issues 
+to open the game after clicking index.html, and it returned "Loading, please wait", 
+but no more changes.
+```
+
+**Prompt 2** (after partial fix):
+```
+It shows loading first, and then changes to "ready to start, please click/touch page", 
+but after clicking, I still fail to play the game.
+```
+
+**Prompt 3** (problem persisted):
+```
+The problem persists. After clicking the "Ready to start, please click/touch the page" 
+message, the page turns gray. Additionally, I cannot load the game interface from 
+'Pac_Man/build/web/index.html'.
+```
+
+#### Step 4: Pivoting to JavaScript
+
+After multiple failed attempts with pygbag, I decided to change technology:
+
+```
+Change to JavaScript. How to open the coding blog website and run the Pac-Man game?
+```
+
+**New issue with JS version**:
+```
+I can open the website but fail to start the game as the game window in the page is 
+completely black, even though I have pressed start button.
+```
+
+**Follow-up**:
+```
+I can play the game through 'python main.py' in the folder Pac_Man, but I fail to play 
+the game in the html you show me. And the game window is always black. Could you solve this issue?
+```
+
+#### Step 5: Ghost AI Debugging (Multiple Iterations)
+
+Once the game loaded, I discovered ghost AI issues. Here's my iterative debugging:
+
+**Iteration 1**:
+```
+I can start the game now, but the ghosts seem to have some problems moving. When I move 
+Pac-Man, the ghosts can't catch me; they don't seem to understand the structure of the 
+obstacles in the maze, and even when they can move, they can't leave the area where they appear.
+```
+
+**Iteration 2** (after a fix):
+```
+The movement of ghost still have several issues. After my Pac-Man meets with the ghost 
+and dies, some ghosts will stop chasing Pac-Man. I remember in the original Pac-Man game, 
+this issue didn't appear. Could you check why it happens and solve it?
+```
+
+**Iteration 3** (comparing with working version):
+```
+Similar issues as before. When I move Pac-Man, the ghosts can't catch me; they don't seem 
+to understand the structure of the obstacles in the maze, and even when they can move, 
+they can't leave the area where they appear. And when they leave the birth region and 
+begin to chase me, some of them will stop chasing me. Also, the game before we build website 
+seems to work well. That is to say, these issues do not exist when running 'Pac_Man % python main.py'.
+```
+
+**Key Insight**: Comparing the working Python version with the broken JavaScript version helped identify that the pathfinding logic wasn't properly ported.
+
+#### Step 6: Final Tuning
+
+**Balance adjustment**:
+```
+Everything is great, but the ghost is much faster than Pac-Man, could you make it a little slower?
+```
+
+### Lessons Learned from Problem 2
+
+1. **Technology Pivot**: When pygbag CDN failed, switching to pure JavaScript was the right call
+2. **Specific Bug Reports**: Describing exactly what ghosts were doing wrong (stopping, not understanding maze) was more effective than saying "ghosts don't work"
+3. **Reference Comparison**: Pointing out that "python main.py works but HTML doesn't" helped AI identify porting issues
+4. **Iterative Refinement**: Multiple rounds of testing and feedback were necessary to get ghost AI working correctly
 
 ---
 
@@ -145,9 +264,28 @@ Built an auto-updating arXiv paper feed using Copilot CLI (GitHub Copilot in VSC
 - `coding_blog/papers.html` - Generated papers page
 - `.github/workflows/update-arxiv.yml` - GitHub Actions workflow
 
-### Prompts Used with Copilot CLI
+### Prompt Design Process with Copilot CLI
 
-See `arxiv_feed_prompts.md` for detailed prompts. Key prompts:
+Following the agentic programming paradigm taught in class, I used a "plan first, then implement" approach.
+
+**Initial Planning Prompt**:
+```
+In this part, I plan to build an auto-updating arXiv paper feed in my website. 
+I plan to break the task into agent-friendly steps, prompt the agent effectively, 
+and wire everything together. Could you show me the prompt that can help Copilot CLI to code. 
+
+Here are several requirements: Add a new page to your website that displays the latest 
+arXiv papers. The page must include:
+1. **Paper Listing**: The latest arXiv papers matching keywords of your choice. Design the layout as you see fit.
+2. **Paper Details**: Each entry must show the paper title, authors, abstract, and a direct link to the PDF.
+3. **Auto-Update**: The paper list must refresh automatically every midnight via a GitHub Actions workflow.
+4. **Homepage Link**: A link to this page must appear on your homepage from Problem 1.
+5. **Page Design**: Style the page in any way you think readers would appreciate.
+
+And detailed illustrations can be found in Guide.md
+```
+
+**Implementation Prompts** (used sequentially with Copilot CLI):
 
 ```
 1. "Create a Python script that fetches papers from arXiv API using keywords 
@@ -163,6 +301,15 @@ See `arxiv_feed_prompts.md` for detailed prompts. Key prompts:
 5. "Make keywords configurable via a JSON config file"
 ```
 
+**Follow-up Refinement**:
+```
+Nice, there are something I want to further check: 
+(1) Could I change the keywords, and then the paper shown will be changed correspondingly? 
+    The keywords now seem fixed.
+```
+
+This led to the implementation of `config.json` for configurable keywords.
+
 ### Iteration Notes
 
 - Added configurable keywords via `config.json`
@@ -170,16 +317,11 @@ See `arxiv_feed_prompts.md` for detailed prompts. Key prompts:
 - Added interactive keyword editor with multiple CORS proxy fallbacks
 - Added visual indicator showing auto-update schedule
 
+See `arxiv_feed_prompts.md` for the complete list of prompts used.
+
 ---
 
-## AI Tools Used
-
-| Tool | Usage |
-|------|-------|
-| **GitHub Copilot (VSCode)** | Primary coding assistant, code generation, debugging |
-| **Claude AI (Opus 4.5)** | Complex problem-solving, architecture decisions, multi-file refactoring |
-
-## Lessons Learned
+## Summary: Lessons Learned
 
 1. **Pygbag CDN Issues**: External dependencies can fail unexpectedly. Having a fallback (JavaScript) saved the project.
 
@@ -188,6 +330,10 @@ See `arxiv_feed_prompts.md` for detailed prompts. Key prompts:
 3. **CORS Limitations**: Browser-based API calls require CORS proxies; server-side fetching (GitHub Actions) is more reliable.
 
 4. **Prompt Engineering**: Being specific about requirements (e.g., "ghosts should chase Pac-Man and understand maze walls") produces better results.
+
+5. **Planning First**: Using the "plan first" approach before implementing helped break down complex tasks into manageable agent-friendly steps.
+
+6. **Reference Comparison**: When debugging, comparing working code (Python main.py) with broken code (JavaScript port) helps AI identify issues faster.
 
 ---
 

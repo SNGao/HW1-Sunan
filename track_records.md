@@ -37,22 +37,3 @@ Everything is great, but the ghost is much faster than Pac-Man, could make it a 
 Finally, I moved to the Problem 3. Here is my prompt `In this part, I plan to build an auto-updating arXiv paper feed in my website. I plan to break the task into agent-friendly steps, prompt the agent effectively, and wire everything together, could you show me the prompt that can help Copilot CLI to code. Here are several requirement: Add a new page to your website that displays the latest arXiv papers. The page must include: 1. **Paper Listing**: The latest arXiv papers matching keywords of your choice. Design the layout as you see fit. 2. **Paper Details**: Each entry must show the paper title, authors, abstract, and a direct link to the PDF. 3. **Auto-Update**: The paper list must refresh automatically every midnight via a GitHub Actions workflow. 4. **Homepage Link**: A link to this page must appear on your homepage from Problem 1. 5. **Page Design**: Style the page in any way you think readers would appreciate. And detailed illustations can be found in #Guide.md`
 
 Nice, there are something I want to futher check: (1) could I change the keywords, and then the paper shown will be changed correspondingly. The keywords now seems fixed; (2)
-
-
-
-
-Data Scaffolding from the Internet
-
-In this problem, you will build an auto-updating arXiv paper feed for your website. **You must use Copilot CLI as your primary coding tools** to scaffold, implement, and automate this task. The goal is to practice the agentic programming paradigm: break the task into agent-friendly steps, prompt the agent effectively, and wire everything together.
-
-We suggest you to follow the steps we showed in the class: plan first with AI to decide the workflow and agents orchestration, then ask AI to implement the plan.
-
-### Deliverables
-
-Add a new page to your website that displays the latest arXiv papers. The page must include:
-
-1. **Paper Listing**: The latest arXiv papers matching keywords of your choice. Design the layout as you see fit.
-2. **Paper Details**: Each entry must show the paper title, authors, abstract, and a direct link to the PDF.
-3. **Auto-Update**: The paper list must refresh automatically every midnight via a GitHub Actions workflow.
-4. **Homepage Link**: A link to this page must appear on your homepage from Problem 1.
-5. **Page Design**: Style the page in any way you think readers would appreciate.
